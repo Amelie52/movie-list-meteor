@@ -1,1 +1,1 @@
-# todo-list-meteor
+# movies-list-meteor
