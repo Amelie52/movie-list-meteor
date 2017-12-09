@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Movies } from '../api/movies.js';
-import { Card } from 'antd';
+import { Card, Button, Icon } from 'antd';
 
 export default class Movie extends Component {
 
@@ -27,24 +27,20 @@ export default class Movie extends Component {
                 <Card
                     hoverable
                     cover={<img alt="example" src="https://static.pexels.com/photos/247932/pexels-photo-247932.jpeg" />}
+                    actions={[<Icon type="delete" style={{ color: '#ff4d4f' }} onClick={this.deleteThisMovie} />, <Icon type="edit" />]}
                 >
                     <h3>{movie.title}</h3>
-                    <p>Réalisateur : {movie.filmMaker}</p>
-                    <p>ajout du film par : {movie.username}</p>
-
-                    <input
+                    vu <input
                         type="checkbox"
                         readOnly
                         checked={!!movie.checked}
                         onClick={this.toggleChecked}
                     />
-
-                    {/*si c'est son film ajouté, il peut le supprimer*/}
-                    <button className="delete" onClick={this.deleteThisMovie}>
-                        &times;
-                    </button>
-
-                    {/*date, durée, réal, note ?, likes ?*/}
+                    <p>Réalisateur : {movie.filmMaker}</p>
+                    <p>Date de sortie : {movie.filmDate}</p>
+                    <p>Genre : {movie.filmGenre}</p>
+                    <p>ajout du film par : {movie.username}</p>
+                    <p>Synopsis: <br/> {movie.filmSynopsis}</p>
                 </Card>
             </li>
         );
