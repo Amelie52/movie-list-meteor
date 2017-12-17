@@ -36,7 +36,7 @@ class AppContainer extends Component {
         }
 
         return filteredMovies.map((movie) => (
-            <Col span={6} key={movie._id} className="movie-card">
+            <Col span={8} key={movie._id} className="movie-card">
                 <Movie movie={movie} />
             </Col>
         ));
@@ -54,7 +54,7 @@ class AppContainer extends Component {
                 <Content>
                     <section className="intro__content">
                         <div className="container">
-                            <h1>Films ({incompleteCount})</h1>
+                            <h1>My Todo Movies</h1>
                             <em>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus adipisci architecto aut
                                 cumque deserunt ea, fugiat id molestias obcaecati officiis possimus quidem recusandae reiciendis
                                 repellat repudiandae sit tenetur unde voluptatem!
@@ -66,19 +66,18 @@ class AppContainer extends Component {
                         <div className="container">
                             <AddMovieForm currentUser={currentUser} />
 
-                            <Row gutter={20}>
-                                <div>
-                                    <h2>Ma liste de film</h2>
-                                    <label className="hide-completed">
-                                        <input
-                                            type="checkbox"
-                                            readOnly
-                                            checked={this.state.hideCompleted}
-                                            onClick={this.toggleHideCompleted}
-                                        /> Cacher les films vu
-                                    </label>
-                                </div>
-
+                            <div>
+                                <h2>Ma liste de films ({incompleteCount})</h2>
+                                <label className="hide-completed">
+                                    <input
+                                        type="checkbox"
+                                        readOnly
+                                        checked={this.state.hideCompleted}
+                                        onClick={this.toggleHideCompleted}
+                                    /> Cacher les films vu
+                                </label>
+                            </div>
+                            <Row gutter={20} className="movies-card__list">
                                 {this.renderMovies()}
                             </Row>
                         </div>
@@ -90,6 +89,8 @@ class AppContainer extends Component {
 }
 
 export default withTracker(() => {
+    Meteor.subscribe('movies');
+
     return {
         movies: Movies.find({}, { sort: { createdAt: -1 } }).fetch(),
         incompleteCount: Movies.find({ checked: { $ne: true } }).count(),
