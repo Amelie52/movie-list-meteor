@@ -5,6 +5,7 @@ body {
     font-size: 1rem;
     line-height: 1.5;
     font-weight: 400;
+    font-family: 'Open Sans', sans-serif;
 }
 
 .container {
@@ -26,10 +27,6 @@ li {
 
 .intro__content {
     padding: 50px 0;
-}
-
-.movie-card {
-    margin-bottom: 20px;
 }
 
 .movie-card p {
@@ -54,4 +51,44 @@ h3 {
 #login-buttons a {
     text-decoration: none;
     color: rgba(0, 0, 0, 0.65);
+}
+
+.ant-card-meta-title {
+    white-space: pre-wrap !important;
+}
+
+.movie-title {
+    font-size: 16px;
+    font-weight: 500;
+}
+
+.ant-divider-inner-text {
+    font-size: 12px;
+}
+
+.movies-card__list {
+    display: flex !important;
+    flex-wrap: wrap;
+}
+
+.movie-card {
+    margin-bottom: 20px;
+    display: flex !important;
+    flex-direction: column;
+}
+
+.movie-card > li {
+    display: flex;
+    flex-grow: 1;
+}
+
+.ant-card {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.ant-card-cover img {
+    object-fit: cover;
+    max-height: 200px;
 }

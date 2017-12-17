@@ -28,16 +28,7 @@ export class AddMovieForm extends React.Component {
         const filmGenre = document.getElementsByClassName('ant-select-selection-selected-value')[0].textContent;
         const filmSynopsis = findId('filmSynopsisTextarea');
 
-        Movies.insert({
-            title: title,
-            filmMaker: filmMaker,
-            filmGenre: filmGenre,
-            filmDate: filmDate,
-            filmSynopsis: filmSynopsis,
-            createdAt: new Date(),
-            owner: Meteor.userId(),
-            username: Meteor.user().username,
-        });
+        Meteor.call('movies.insert', title, filmMaker, filmGenre, filmDate, filmSynopsis);
 
         this.setState({ modalVisible: false });
 
@@ -45,6 +36,7 @@ export class AddMovieForm extends React.Component {
         document.getElementById('titleInput').value = '';
         document.getElementById('filmMakerInput').value = '';
         document.getElementsByClassName('ant-calendar-picker-input')[0].value = '';
+        document.getElementsByClassName('ant-select-selection-selected-value')[0].textContent = '';
         document.getElementById('filmSynopsisTextarea').value = '';
     };
 
@@ -94,6 +86,7 @@ export class AddMovieForm extends React.Component {
                                     <Option value="policier">Policier</Option>
                                     <Option value="aventure">Aventure</Option>
                                     <Option value="comedie">Comédie</Option>
+                                    <Option value="science-fiction">Science fiction</Option>
                                 </Select>
                             </FormItem>
                             <FormItem>
