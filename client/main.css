@@ -1,6 +1,3 @@
-/*
-css here*/
-
 body {
     font-size: 1rem;
     line-height: 1.5;
@@ -48,9 +45,20 @@ h3 {
     font-size: 1.5rem;
 }
 
+#login-buttons .login-link-text {
+    color: rgba(0, 0, 0, 0.65);
+}
+
 #login-buttons a {
     text-decoration: none;
-    color: rgba(0, 0, 0, 0.65);
+}
+
+.accounts-dialog * {
+    font-family: 'Open Sans', sans-serif;
+}
+
+.accounts-dialog {
+    padding: 15px 10px;
 }
 
 .ant-card-meta-title {
@@ -91,4 +99,66 @@ h3 {
 .ant-card-cover img {
     object-fit: cover;
     max-height: 200px;
+}
+
+#login-dropdown-list {
+    left: auto;
+    top: 45px;
+    right: 0;
+}
+
+#login-dropdown-list {
+    white-space: normal;
+}
+
+#login-buttons .login-close-text {
+    font-size: 0;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+}
+
+#login-buttons .login-close-text:after {
+    font-size: 1rem;
+    color: rgba(0, 0, 0, 0.65);
+    content: '\E62F';
+    font-family: "anticon" !important;
+}
+
+.login-form label {
+    color: rgba(0, 0, 0, 0.65);
+}
+
+#login-buttons .additional-link {
+    padding: 5px 8px;
+    font-size: 80%;
+    width: 100%;
+    line-height: 1.5;
+    text-align: center;
+    border-radius: 4px;
+}
+
+#login-buttons .login-button, #login-buttons .additional-link {
+    /*background-color: transparent;*/
+    margin-top: 10px;
+    margin-bottom: 0;
+    color: #fff;
+}
+
+#login-buttons .login-button {
+    background-color: rgb(82, 196, 26);
+    border: 1px solid rgb(82, 196, 26);
+}
+
+#login-buttons .additional-link {
+    background-color: #40a9ff;
+    border: 1px solid #40a9ff;
+}
+
+#login-buttons .additional-link:hover {
+    background-color: #30a9ee;
+}
+
+#login-buttons .login-button:hover {
+    background-color: rgb(80, 190, 20);
 }
